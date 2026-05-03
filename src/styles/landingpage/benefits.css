@@ -1,0 +1,190 @@
+/* src/styles/benefits.css */
+
+.bn-section {
+  width: 100%;
+  padding: 100px 20px;
+  background: #f8faff; /* Latar belakang soft blue/grey sesuai mockup */
+  display: flex;
+  justify-content: center;
+}
+
+.bn-container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* HEADER STYLE */
+.bn-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 60px;
+}
+
+.bn-badge {
+  display: inline-block;
+  background: #e0e7ff;
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.bn-heading {
+  font-size: 36px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+/* NAV CONTROLS */
+.bn-nav-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.bn-nav-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #64748b;
+  font-size: 18px;
+  transition: all 0.2s ease;
+}
+
+.bn-nav-btn.bn-active {
+  background: #0f172a;
+  color: white;
+  border-color: #0f172a;
+}
+
+.bn-nav-btn:hover {
+  transform: scale(1.05);
+}
+
+/* GRID SYSTEM */
+.bn-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.bn-card {
+  background: white;
+  padding: 48px 40px;
+  border-radius: 32px;
+  border: 1px solid rgba(241, 245, 249, 0.8);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.05),
+    0 10px 10px -5px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.bn-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+}
+
+/* ICON WRAPPER */
+.bn-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 32px;
+}
+
+.bn-icon-wrapper.bn-blue {
+  background: #eff6ff;
+  color: #2563eb;
+}
+.bn-icon-wrapper.bn-purple {
+  background: #f5f3ff;
+  color: #7c3aed;
+}
+.bn-icon-wrapper.bn-orange {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.bn-card-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.bn-card-desc {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 32px;
+  flex-grow: 1;
+}
+
+/* LEARN MORE LINK */
+.bn-learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.bn-arrow-icon {
+  transition: transform 0.2s ease;
+}
+
+.bn-learn-more:hover .bn-arrow-icon {
+  transform: translateX(4px);
+}
+
+.bn-learn-more.bn-blue {
+  color: #2563eb;
+}
+.bn-learn-more.bn-purple {
+  color: #7c3aed;
+}
+.bn-learn-more.bn-orange {
+  color: #ea580c;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .bn-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .bn-header-flex {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .bn-grid {
+    grid-template-columns: 1fr;
+  }
+  .bn-nav-controls {
+    display: none;
+  }
+  .bn-heading {
+    font-size: 28px;
+  }
+}

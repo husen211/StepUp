@@ -1,0 +1,172 @@
+/* BACKGROUND GLOBAL */
+.assessment-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8faff 0%, #e0e9ff 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.assessment-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+/* MAIN CARD */
+.assessment-card {
+  width: 100%;
+  max-width: 1000px;
+  min-height: 600px;
+  display: flex;
+  background: white;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+}
+
+/* FORM SECTION */
+.form-content {
+  flex: 1;
+  padding: 50px 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TOP NAVIGATION */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-continue {
+  background: #2563eb;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 12px;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  cursor: pointer;
+}
+
+/* HEADER */
+.form-header h1 {
+  font-size: 26px;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.form-header p {
+  color: #64748b;
+  line-height: 1.5;
+  font-size: 14px;
+  max-width: 500px;
+}
+
+/* INPUTS */
+.form-body {
+  margin-top: 30px;
+}
+
+.input-field {
+  margin-bottom: 24px;
+}
+
+.input-field label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 10px;
+}
+
+.label-icon {
+  color: #94a3b8;
+}
+
+.select-wrapper select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background-color: #fff;
+  appearance: none;
+  font-size: 14px;
+  color: #64748b;
+  outline: none;
+}
+
+/* EXPERIENCE LEVEL */
+.experience-level-container {
+  margin-top: 40px;
+  background: #f8fafc; /* Kotak abu-abu seperti di gambar */
+  padding: 24px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.level-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 16px;
+}
+
+.level-options-card {
+  display: flex;
+  background: white;
+  padding: 6px;
+  border-radius: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.level-btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: transparent;
+  border-radius: 10px;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.level-btn.active {
+  background: #3b82f6;
+  color: white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .assessment-card {
+    flex-direction: column;
+    margin: 20px;
+  }
+
+  .form-content {
+    padding: 30px;
+  }
+}
