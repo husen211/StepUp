@@ -38,7 +38,7 @@ StepUp memiliki beberapa fitur utama, antara lain analisis inputan pengguna, ide
 6. Deployment & Configuration 
 
 **Dataset**
-Link dataset : https://www.kaggle.com/datasets/trendcart/resume-dataset?utm_source=chatgpt.com&select=job_roles.csv		
+Link dataset : https://www.kaggle.com/datasets/trendcart/resume-dataset	
 
 
 **Cara Penggunaan Website**
