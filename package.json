@@ -1,0 +1,6 @@
+{
+  "name": "stepup-monorepo",
+  "version": "1.0.0",
+  "description": "Root package.json to bypass Hostinger validation",
+  "private": true
+}
