@@ -260,10 +260,40 @@ function normalizeAtsCv(atsCv, assessment) {
     }
 
     // Transform "internship_experience" → "experience" (format CVExperience.jsx)
-    let experience = atsCv.internship_experience || atsCv.experience || exp.internships || [];
+    let experience = [];
+    if (Array.isArray(atsCv.internship_experience) && atsCv.internship_experience.length > 0) {
+        if (typeof atsCv.internship_experience[0] === "object" && atsCv.internship_experience[0].position) {
+            experience = atsCv.internship_experience;
+        } else {
+            experience = exp.internships || [];
+        }
+    } else if (Array.isArray(atsCv.experience) && atsCv.experience.length > 0) {
+        if (typeof atsCv.experience[0] === "object" && atsCv.experience[0].position) {
+            experience = atsCv.experience;
+        } else {
+            experience = exp.internships || [];
+        }
+    } else {
+        experience = exp.internships || [];
+    }
 
     // Transform "organizational_experience" → "organizations" (format CVOrganizations.jsx)
-    let organizations = atsCv.organizational_experience || atsCv.organizations || exp.organizations || [];
+    let organizations = [];
+    if (Array.isArray(atsCv.organizational_experience) && atsCv.organizational_experience.length > 0) {
+        if (typeof atsCv.organizational_experience[0] === "object" && atsCv.organizational_experience[0].organizationName) {
+            organizations = atsCv.organizational_experience;
+        } else {
+            organizations = exp.organizations || [];
+        }
+    } else if (Array.isArray(atsCv.organizations) && atsCv.organizations.length > 0) {
+        if (typeof atsCv.organizations[0] === "object" && atsCv.organizations[0].organizationName) {
+            organizations = atsCv.organizations;
+        } else {
+            organizations = exp.organizations || [];
+        }
+    } else {
+        organizations = exp.organizations || [];
+    }
 
     // Certifications — fallback ke assessment jika AI kirim string mentah
     let certifications = [];
