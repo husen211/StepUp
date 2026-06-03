@@ -76,7 +76,10 @@ export default function TopMatches({ career = {}, explanation }) {
 
         <p className="overall-text">OVERALL MATCH</p>
 
-        <button className="save-btn">
+        <button
+          className="save-btn"
+          onClick={() => alert("The result has been saved!")}
+        >
           <FiBookmark />
           Save Result
         </button>

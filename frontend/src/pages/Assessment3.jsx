@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { createAssessment } from "../services/assessmentService";
 import AssessmentLayout from "../layouts/AssessmentLayout";
 import AssessmentProgressHeader from "../components/assessment/AssessmentProgressHeader";
+import { persistProfileImage } from "../utils/profileImage";
+import { getStoredDraft, saveDraft } from "../utils/draftStorage";
 import ProjectSection from "../components/assessment3/ProjectSection";
 import InternshipSection from "../components/assessment3/InternshipSection";
 import OrganizationSection from "../components/assessment3/OrganizationSection";
@@ -88,6 +90,13 @@ export default function Assessment3() {
       };
 
       const response = await createAssessment(fullAssessment);
+
+      if (step1.profileImage) {
+        persistProfileImage(step1.profileImage, {
+          ...step1,
+          name: step1.fullName,
+        });
+      }
 
       localStorage.setItem("latestAssessmentId", response.data.data._id);
 
@@ -180,6 +189,18 @@ export default function Assessment3() {
     );
   });
 
+  const handleSaveDraft = () => {
+    const existingDraft = getStoredDraft();
+
+    saveDraft({
+      ...existingDraft,
+      projects,
+      internships,
+      organizations,
+      certifications,
+    });
+  };
+
   useEffect(() => {
     localStorage.setItem(
       "assessment3-certifications",
@@ -188,7 +209,7 @@ export default function Assessment3() {
   }, [certifications]);
 
   return (
-    <AssessmentLayout currentStep={3}>
+    <AssessmentLayout currentStep={3} onSaveDraft={handleSaveDraft}>
       {/* HEADER */}
       <div className="form-header">
         <AssessmentProgressHeader

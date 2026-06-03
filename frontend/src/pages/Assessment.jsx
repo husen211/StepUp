@@ -7,6 +7,12 @@ import AssessmentSidebar from "../components/AssessmentSidebar";
 import AssessmentProgressHeader from "../components/assessment/AssessmentProgressHeader";
 import ImageCropModal from "../components/assessmentcrop/ImageCropModal";
 import UploadPreview from "../components/assessmentcrop/UploadPreview";
+import {
+  clearPersistedProfileImage,
+  getProfileImageFromUser,
+  persistProfileImage,
+} from "../utils/profileImage";
+import { getStoredDraft, saveDraft } from "../utils/draftStorage";
 
 import { FiChevronDown, FiArrowRight } from "react-icons/fi";
 
@@ -52,19 +58,18 @@ export default function Assessment() {
   });
 
   const [previewImage, setPreviewImage] = useState(() => {
-    return localStorage.getItem("assessmentProfileImage");
+    return getProfileImageFromUser(formData);
   });
   const [showCropModal, setShowCropModal] = useState(false);
   const [tempImage, setTempImage] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const isFormValid =
-    [
-      formData.fullName,
-      formData.email,
-      formData.university,
-      formData.major,
-    ].every((field) => field.trim() !== "");
+  const isFormValid = [
+    formData.fullName,
+    formData.email,
+    formData.university,
+    formData.major,
+  ].every((field) => field.trim() !== "");
 
   useEffect(() => {
     localStorage.setItem("assessmentStep1", JSON.stringify(formData));
@@ -73,8 +78,9 @@ export default function Assessment() {
   useEffect(() => {
     if (previewImage) {
       localStorage.setItem("assessmentProfileImage", previewImage);
+      persistProfileImage(previewImage, formData);
     }
-  }, [previewImage]);
+  }, [previewImage, formData]);
 
   const handleChange = (e) => {
     setFormData({
@@ -116,11 +122,25 @@ export default function Assessment() {
   const removeImage = () => {
     setPreviewImage(null);
 
-    localStorage.removeItem("assessmentProfileImage");
+    clearPersistedProfileImage();
   };
 
   const handleSaveCroppedImage = (croppedImage) => {
     setPreviewImage(croppedImage);
+    persistProfileImage(croppedImage, formData);
+  };
+
+  const handleSaveDraft = () => {
+    const existingDraft = getStoredDraft();
+
+    saveDraft({
+      ...existingDraft,
+      step1: {
+        ...formData,
+        profileImage: previewImage,
+      },
+      profileImage: previewImage,
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -167,7 +187,7 @@ export default function Assessment() {
 
   return (
     <div className="assessment-page">
-      <Navbar />
+      <Navbar onSaveDraft={handleSaveDraft} />
 
       <main className="assessment-main">
         <div className="assessment-card">
