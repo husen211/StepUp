@@ -11,11 +11,11 @@ Project ini dibuat berdasarkan tugas akhir dari Student Independet oleh Coding C
 sebagai bentuk implementasi dari ilmu yang diberikan selama melakukan pembelajaran secara online
 
 **Latar Belakang**
-Perkembangan dunia industri yang semakin cepat menuntut mahasiswa dan fresh graduate untuk memiliki keterampilan yang relevan dengan kebutuhan kerja saat ini. Namun, masih banyak mahasiswa yang mengalami kebingungan dalam menentukan arah karier, memahami kemampuan diri, serta mengetahui skill yang perlu dikembangkan agar sesuai dengan kebutuhan industri. StepUp hadir sebagai platform berbasis AI yang membantu pengguna memahami profil kemampuan mereka melalui Assessment Form.
+Perkembangan dunia industri yang semakin cepat menuntut mahasiswa untuk memiliki keterampilan yang relevan dengan kebutuhan kerja saat ini. Namun, masih banyak mahasiswa yang mengalami kebingungan dalam menentukan arah karier, memahami kemampuan diri, serta mengetahui skill yang perlu dikembangkan agar sesuai dengan kebutuhan industri. StepUp hadir sebagai platform berbasis AI yang membantu pengguna memahami profil kemampuan mereka melalui Assessment Form.
 
 
 **Tujuan Project**
-Project ini bertujuan untuk membantu mahasiswa dan fresh graduate dalam mempersiapkan diri menghadapi dunia kerja melalui sistem rekomendasi karier berbasis AI. Selain itu, project ini juga bertujuan memberikan analisis skill gap, rekomendasi learning path, serta membantu pengguna memahami kompetensi yang perlu ditingkatkan agar lebih siap dan kompetitif di dunia industri.
+Project ini bertujuan untuk membantu mahasiswa dalam mempersiapkan diri menghadapi dunia kerja melalui sistem rekomendasi karier berbasis AI. Selain itu, project ini juga bertujuan memberikan analisis skill gap, rekomendasi learning path, serta membantu pengguna memahami kompetensi yang perlu ditingkatkan agar lebih siap dan kompetitif di dunia industri.
 
 **Permasalahan yang Diselesaikan**
 Project ini dikembangkan untuk menyelesaikan beberapa permasalahan utama, seperti kebingungan mahasiswa dalam menentukan jalur karier, kurangnya pemahaman terhadap kemampuan diri, tidak adanya panduan pengembangan skill yang terarah, serta minimnya platform karier yang mampu memberikan analisis skill dan skill gap secara personal.
@@ -43,8 +43,14 @@ StepUp memiliki beberapa fitur utama, antara lain analisis inputan pengguna, ide
 **Dataset**
 Link dataset : https://www.kaggle.com/datasets/trendcart/resume-dataset	
 
+**Tautan Deployment Produk**
+Link Website : https://stepupcareer.id/
+Link API AI: https://nnajmi-stepup-career.hf.space/predict
 
-**Cara Penggunaan Website & Setup Environment Lokal**
+**Tautan Penggunaan Produk**
+Link demo video : https://youtu.be/mEp447TlInM
+
+**Petunjuk Setup Environment (Local)**
 
 Untuk menjalankan project StepUp secara lokal (di komputer Anda), silakan ikuti langkah-langkah berikut:
 
@@ -88,11 +94,3 @@ Jalankan aplikasi Frontend:
 npm run dev
 ```
 Aplikasi Frontend sekarang dapat diakses melalui browser di `http://localhost:5173`.
-**Hasil dan Evaluasi**
-
-**Deployment**
-Aplikasi StepUp telah berhasil di-deploy dan dapat digunakan secara publik melalui tautan resmi berikut:
-- 🌐 **Website Utama (Frontend):** https://stepupcareer.id
-- ⚙️ **API Server (Backend):** https://api.stepupcareer.id
-- 🧠 **AI Endpoint (Hugging Face):** https://nnajmi-stepup-career.hf.space
-**Lisensi**
