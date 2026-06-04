@@ -34,7 +34,7 @@ export default function RecentActivity({ activities = [] }) {
       hour12: false,
     });
 
-    return `${formattedDate} GÇó ${formattedTime}`;
+    return `${formattedDate} â€¢ ${formattedTime}`;
   };
 
   // ICONS
