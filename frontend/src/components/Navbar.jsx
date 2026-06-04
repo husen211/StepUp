@@ -2,7 +2,7 @@
 import "../styles/navbar.css";
 import { useEffect, useRef, useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import Logo from "../assets/S.png";
 import {
   AUTH_CHANGED_EVENT,
@@ -34,12 +34,11 @@ export default function Navbar() {
       avatarSeed,
     )}`;
 
-  const isActiveSection = (hash) => {
-    if (hash === "#home") {
-      return location.hash === "" || location.hash === "#home";
-    }
+  const [searchParams] = useSearchParams();
+  const activeSection = searchParams.get("section") || "home";
 
-    return location.hash === hash;
+  const isActiveSection = (sectionId) => {
+    return activeSection === sectionId;
   };
 
   useEffect(() => {
@@ -94,30 +93,33 @@ export default function Navbar() {
         </div>
         {/* MENU */}
         <div className="nv-nav-links">
-          <a
-            href="#home"
-            className={`nv-link-item ${isActiveSection("#home") ? "active" : ""}`}
+          <span
+            onClick={() => navigate("/landing?section=home")}
+            className={`nv-link-item ${isActiveSection("home") ? "active" : ""}`}
+            style={{ cursor: "pointer" }}
           >
             Home
-          </a>
+          </span>
 
-          <a
-            href="#how-it-works"
+          <span
+            onClick={() => navigate("/landing?section=how-it-works")}
             className={`nv-link-item ${
-              isActiveSection("#how-it-works") ? "active" : ""
+              isActiveSection("how-it-works") ? "active" : ""
             }`}
+            style={{ cursor: "pointer" }}
           >
             How it Works
-          </a>
+          </span>
 
-          <a
-            href="#features"
+          <span
+            onClick={() => navigate("/landing?section=features")}
             className={`nv-link-item ${
-              isActiveSection("#features") ? "active" : ""
+              isActiveSection("features") ? "active" : ""
             }`}
+            style={{ cursor: "pointer" }}
           >
             Features
-          </a>
+          </span>
         </div>
         {/* CTA */}
         <div className="nv-action-area">
